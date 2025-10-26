@@ -4,10 +4,11 @@ interface FeatureCardProps {
   image: string;
   title: string;
   subtitle: string;
+  alt?: string;
   onClick: () => void;
 }
 
-export const FeatureCard = ({ image, title, subtitle, onClick }: FeatureCardProps) => {
+export const FeatureCard = ({ image, title, subtitle, alt, onClick }: FeatureCardProps) => {
   return (
     <Card
       className="group overflow-hidden cursor-pointer bg-card border-border hover-lift"
@@ -20,7 +21,9 @@ export const FeatureCard = ({ image, title, subtitle, onClick }: FeatureCardProp
       <div className="aspect-video overflow-hidden">
         <img
           src={image}
-          alt={title}
+          alt={alt || title}
+          loading="lazy"
+          decoding="async"
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
         />
       </div>

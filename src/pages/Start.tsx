@@ -5,24 +5,30 @@ import { FeatureCard } from "@/components/FeatureCard";
 import { TopicInput } from "@/components/TopicInput";
 import { fetchStory } from "@/lib/mockApi";
 import { useToast } from "@/hooks/use-toast";
+import romeImage from "@/assets/rome_general_forum.jpg";
+import berlinImage from "@/assets/berlin_wall_1989_crowd.jpg";
+import egyptImage from "@/assets/egypt_queen_pyramids.jpg";
 
 const featuredTopics = [
   {
     title: "Walk through Ancient Rome with Julius Caesar",
     subtitle: "Experience the grandeur of the Roman Empire",
-    image: "https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=800&q=80",
+    image: romeImage,
+    alt: "Illustration of Ancient Rome with a Roman general and the Forum",
     topic: "Julius Caesar and Ancient Rome",
   },
   {
     title: "Witness the fall of the Berlin Wall",
     subtitle: "November 9, 1989 - A night that changed the world",
-    image: "https://images.unsplash.com/photo-1599493758267-c6c884c7071f?w=800&q=80",
+    image: berlinImage,
+    alt: "Illustration of Berlin Wall fall with celebrating crowd, 1989",
     topic: "Fall of the Berlin Wall",
   },
   {
     title: "Ask Cleopatra about life in Egypt",
     subtitle: "Discover the mysteries of ancient Egyptian royalty",
-    image: "https://images.unsplash.com/photo-1568322445389-f64ac2515020?w=800&q=80",
+    image: egyptImage,
+    alt: "Illustration of ancient Egypt with a queen silhouette, pyramids, and the Nile",
     topic: "Cleopatra and Ancient Egypt",
   },
 ];
@@ -72,12 +78,13 @@ const Start = () => {
 
           {/* Featured Cards */}
           <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 animate-scale-in">
-            {featuredTopics.map((topic, idx) => (
+          {featuredTopics.map((topic, idx) => (
               <FeatureCard
                 key={idx}
                 image={topic.image}
                 title={topic.title}
                 subtitle={topic.subtitle}
+                alt={topic.alt}
                 onClick={() => handleTopicSubmit(topic.topic)}
               />
             ))}

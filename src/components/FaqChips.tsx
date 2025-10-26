@@ -8,7 +8,7 @@ interface FaqChipsProps {
 
 export const FaqChips = ({ faqs, onAsk, disabled }: FaqChipsProps) => {
   return (
-    <div className="flex flex-wrap gap-2 mb-4">
+    <div className="flex flex-wrap md:flex-wrap gap-2 mb-4">
       {faqs.map((faq, index) => (
         <Button
           key={index}
@@ -16,7 +16,7 @@ export const FaqChips = ({ faqs, onAsk, disabled }: FaqChipsProps) => {
           size="sm"
           onClick={() => onAsk(faq)}
           disabled={disabled}
-          className="rounded-full border-primary/50 hover:bg-primary hover:text-primary-foreground transition-all"
+          className="rounded-full border-primary/50 hover:bg-primary hover:text-primary-foreground transition-all whitespace-nowrap"
           aria-label={`Ask: ${faq}`}
         >
           {faq}
